@@ -1,0 +1,27 @@
+{
+  "phrases": {
+    "en": [
+      "what is today's date",
+      "could you tell me the date today",
+      "can you inform me of the current date",
+      "do you know what day it is",
+      "do you have today's date"
+    ],
+    "fr": [
+      "quel jour sommes-nous",
+      "on est quel jour",
+      "quelle est la date d'aujourd'hui",
+      "pourriez-vous m'indiquer la date actuelle",
+      "pouvez-vous me dire la date du jour"
+    ]
+  },
+  "response": {
+    "en": {
+      "date": "[The date today is:] dddd [the] Do MMMM, YYYY [and it is] hh:mm a"
+    },
+    "fr": {
+      "date": "[Aujourd'hui nous sommes le] dddd D MMMM YYYY [et il est] HH [heures] mm"
+    }
+  },
+  "error": "Undefined language for kara/date"
+}

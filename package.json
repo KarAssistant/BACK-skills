@@ -1,0 +1,24 @@
+{
+  "name": "back-skills",
+  "version": "0.0.1",
+  "description": "Kara choose the skill for user request",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "prepare": "node prepare.js",
+    "dev": "nodemon index.js --ignore ./data --ignore logs/",
+    "startSever": "node index.js 2>&1 | tee -a logs/log-$(date +'%Y-%m-%d').txt",
+    "test": "set NODE_OPTIONS=--no-experimental-fetch && jest -i",
+    "linter": "npx prettier -w ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarAssistant/BACK-skills.git"
+  },
+  "author": "CodyIsTheSenate",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KarAssistant/BACK-skills/issues"
+  },
+  "homepage": "https://github.com/KarAssistant/BACK-skills#readme"
+}
