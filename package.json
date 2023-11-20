@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "prepare": "node prepare.js",
+    "loadSkills": "node prepare.js",
     "dev": "nodemon index.js --ignore ./data --ignore logs/",
     "startSever": "node index.js 2>&1 | tee -a logs/log-$(date +'%Y-%m-%d').txt",
     "test": "set NODE_OPTIONS=--no-experimental-fetch && jest -i",

@@ -14,14 +14,15 @@ function listFilesRecursively(directoryPath = "") {
         // Vérifier si c'est un dossier
         if (fs.statSync(filePath).isDirectory()) {
             // Si c'est un dossier, appel récursif pour lister les fichiers de ce dossier
-            const folderPath = path.join(__dirname, "skillsData", directoryPath, file);
+            const folderPath = path.join(__dirname, "dataSkills", directoryPath, file);
             if (!fs.existsSync(folderPath)) fs.mkdirSync(folderPath);
             listFilesRecursively(path.join(directoryPath, file));
         } else {
             if(filePath.endsWith("text.json")){
                 const src = path.join(__dirname, "skills", directoryPath, file);
-                const dst = path.join(__dirname, "skillsData", directoryPath, file);
-                if (!fs.existsSync(dst)) fs.copyFileSync(src, dst);
+                const dst = path.join(__dirname, "dataSkills", directoryPath, file);
+                fs.copyFileSync(src, dst);
+                console.log(path.join(directoryPath, file))
             }
         }
     }
