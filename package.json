@@ -1,6 +1,6 @@
 {
   "name": "back-skills",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kara choose the skill for user request",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/KarAssistant/BACK-skills/issues"
   },
-  "homepage": "https://github.com/KarAssistant/BACK-skills#readme"
+  "homepage": "https://github.com/KarAssistant/BACK-skills#readme",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.13.0",
+    "cities-list": "^1.0.3",
+    "moment-timezone": "^0.5.43",
+    "weather-js": "^2.0.0"
+  }
 }

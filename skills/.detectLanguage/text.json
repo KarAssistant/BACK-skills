@@ -1,0 +1,29 @@
+{
+  "phrases": {
+    "en": [
+      "constant advancements in technology shape our future, redefining how we interact with the world",
+      "exploring new horizons broadens our perspectives, offering memories that last a lifetime",
+      "each film and series creates a unique universe, captivating viewers and transporting them into extraordinary adventures",
+      "taking care of oneself physically and mentally is essential for leading a balanced and fulfilling life",
+      "delicious flavors and creative recipes make cooking a cultural and sensory experience to remember",
+      "books are gateways to imaginary worlds, stimulating our minds and broadening our understanding of the world",
+      "protecting our planet is a shared responsibility, requiring sustainable actions to ensure a viable future",
+      "melodious notes transcend boundaries, connecting people across time and space",
+      "staying informed about global events is crucial to understanding the challenges and opportunities shaping our society",
+      "artistic and cultural expression enriches our lives, reflecting the diversity and beauty of the world around us"
+    ],
+    "fr": [
+      "les avancées constantes dans la technologie façonnent notre avenir et redéfinissent la façon dont nous interagissons avec le monde",
+      "explorer de nouveaux horizons élargit nos perspectives, offrant des souvenirs qui restent gravés à jamais",
+      "Chaque film et série crée un univers unique, captivant les spectateurs et les transportant dans des aventures extraordinaires",
+      "prendre soin de soi physiquement et mentalement est essentiel pour mener une vie équilibrée et épanouissante",
+      "les saveurs délicieuses et les recettes créatives font de la cuisine une expérience culturelle et sensorielle inoubliable",
+      "les livres sont des portes ouvertes vers des mondes imaginaires, stimulant notre esprit et élargissant notre compréhension du monde",
+      "protéger notre planète est une responsabilité partagée, nécessitant des actions durables pour assurer un avenir viable",
+      "les notes mélodieuses transcendent les frontières, connectant les gens à travers le temps et l'espace",
+      "être informé des événements mondiaux est crucial pour comprendre les défis et les opportunités qui façonnent notre société",
+      "l'expression artistique et culturelle enrichit nos vies, reflétant la diversité et la beauté du monde qui nous entoure"
+    ]
+  },
+  "error": "Undefined language for .detectLanguage"
+}
