@@ -37,7 +37,7 @@ jobs:
             echo "version=$version" >> "$GITHUB_OUTPUT"
           fi
 
-Tests:
+  Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
