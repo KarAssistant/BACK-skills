@@ -27,7 +27,9 @@ async function start(){
     vectorData.result = result;
     delete vectorData.vector;
     
-    fs.writeFileSync(filePathQuery, JSON.stringify(vectorData));
+    const stringResult = vectorData;
+    console.log(stringResult);
+    fs.writeFileSync(filePathQuery, stringResult);
 }
 
 start()
