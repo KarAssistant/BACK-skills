@@ -1,5 +1,12 @@
-const variableRe = new RegExp("<@[a-zA-Z]*@>");
+const variableRe = new RegExp("<@[a-zA-Z0-9]*@>");
 
+/**
+ * Replaces variables in a string with corresponding values from the provided data object.
+ *
+ * @param {string} string - The input string containing variables to be replaced.
+ * @param {Object} data - The data object containing variable-value pairs.
+ * @returns {string} - The string with variables replaced by their values.
+ */
 module.exports.replaceVariables = replaceVariables;
 function replaceVariables(string, data = {}) {
   const match = string.match(variableRe);
