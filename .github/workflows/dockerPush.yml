@@ -55,6 +55,7 @@ jobs:
     permissions: write-all
     needs:
       - Check
+      - Tests
     if: ${{ needs.Check.outputs.RUN_BUILD == 'yes' && needs.Tests.result == 'success'  }}
     steps:
       - name: Check out repository code
