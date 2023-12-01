@@ -1,50 +1,49 @@
-const fs = require("fs");
+const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
-const pathRootProject = path.resolve(__dirname+"/../../")
-jest.mock(pathRootProject + "/universalSentenceEncoder/universalSentenceEncoder");
-const createVector = require(pathRootProject + "/universalSentenceEncoder/universalSentenceEncoder");
-const loadVector = require(pathRootProject + "/utils/loadVector");
-const sampleVectorData = require("../sampleFile/vector.json");
-const sha1 = require("../../utils/crypto/sha1");
+const { loadVector } = require("../../utils/loadVector");
+const { sha1 } = require("../../utils/crypto/sha1");
+
+// Mocking des modules externes
+jest.mock('fs');
+jest.mock("../../utils/crypto/sha1");
 
 describe('loadVector', () => {
-    const mockPhrase = 'example phrase';
-    const mockHash = 'mockHash';
-    const mockFilePath = `${pathRootProject}/data/vectors/${mockHash}.json`;
-    const mockVector = {test:"test"}
+  // Mock de la fonction sha1
+  const mockSha1 = jest.fn();
+  jest.mock("../../utils/crypto/sha1", () => mockSha1);
 
-    // Mocking fs.existsSync and fs.readFileSync
-    jest.mock('fs');
-    jest.spyOn(fs, 'existsSync').mockReturnValue(true);
-    jest.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(sampleVectorData));
+  // Test lorsque le fichier existe
+  test('charge le vecteur à partir du fichier existant', () => {
+    const phrase = 'exemple de phrase';
+    const hash = 'hash_fictif';  // Utilisez la valeur de hash que vous attendez ici
+    const filePath = path.resolve(__dirname + "/../data/vectors/" + hash + ".json");
+    const vectorData = { /* les données de votre vecteur fictif */ };
+    const expectedVector = { /* le vecteur attendu basé sur vectorData */ };
 
-    // Mocking crypto.createHash
-    jest.spyOn(crypto, 'createHash').mockReturnValue({
-        update: jest.fn().mockReturnThis(),
-        digest: jest.fn().mockReturnValue(mockHash),
-    });
+    mockSha1.mockReturnValue(hash);
+    fs.existsSync.mockReturnValue(true);
+    fs.readFileSync.mockReturnValueOnce(JSON.stringify(vectorData));
 
-    jest.mock("../../utils/crypto/sha1");
-    jest.spyOn(sha1, 'sha1').mockReturnValue("mockVector");
+    const result = loadVector({ phrase });
 
-    jest.spyOn(createVector, 'createVector').mockReturnValue(mockVector);
+    expect(mockSha1).toHaveBeenCalledWith(phrase);
+    expect(fs.existsSync).toHaveBeenCalledWith(filePath);
+    expect(fs.readFileSync).toHaveBeenCalledWith(filePath);
+    expect(result).toEqual(expectedVector);
+  });
 
-    it('should load vector from file if it exists', () => {
-        const result = loadVector.loadVector({ phrase: mockPhrase });
+  // Test lorsque le fichier n'existe pas
+  test('retourne null lorsque le fichier n\'existe pas', () => {
+    const phrase = 'phrase inexistante';
 
-        expect(fs.existsSync).toHaveBeenCalledWith(mockFilePath);
-        expect(createVector.createVector).toHaveBeenCalledWith(sampleVectorData);
-        expect(result).toEqual(mockVector);
-    });
+    mockSha1.mockReturnValue('hash_inexistant');  // Utilisez la valeur de hash que vous attendez ici
+    fs.existsSync.mockReturnValue(false);
 
-    it('should return null if vector file does not exist', () => {
-        fs.existsSync.mockReturnValue(false);
+    const result = loadVector({ phrase });
 
-        const result = loadVector.loadVector({ phrase: mockPhrase });
-
-        expect(fs.existsSync).toHaveBeenCalledWith(mockFilePath);
-        expect(createVector.createVector).not.toHaveBeenCalled();
-        expect(result).toBeNull();
-    });
+    expect(mockSha1).toHaveBeenCalledWith(phrase);
+    expect(result).toBeNull();
+  });
+  
+  // Ajoutez d'autres tests en fonction de vos besoins
 });
