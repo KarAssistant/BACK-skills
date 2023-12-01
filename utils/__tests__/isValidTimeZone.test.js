@@ -1,4 +1,4 @@
-const { isValidTimeZone } = require("../../utils/isValidTimeZone");
+const { isValidTimeZone } = require("../isValidTimeZone");
 
 describe("isValidTimeZone", () => {
   test("should return true for a valid timezone", () => {
