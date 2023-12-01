@@ -1,4 +1,4 @@
-const { replaceVariables } = require('../../utils/replaceVariables');
+const { replaceVariables } = require('../replaceVariables');
 
 describe('replaceVariables', () => {
   it('should replace a variable in the string', () => {
