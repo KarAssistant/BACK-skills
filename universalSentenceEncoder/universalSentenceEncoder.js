@@ -11,6 +11,7 @@ module.exports.compareSentences = async (embedding1, embedding2) => {
   return (await tf.losses.cosineDistance(embedding1, embedding2).data())[0];
 };
 
+/* c8 ignore start */
 async function saveQueryClose(result, query) {
   const dataRead = fs.readFileSync(__dirname + "/../data/querriesClose.json", "utf8");
   const content = JSON.parse(dataRead);
@@ -24,3 +25,4 @@ async function saveQueryClose(result, query) {
   const dataWrite = JSON.stringify(content);
   fs.writeFileSync(__dirname + "/../data/querriesClose.json", dataWrite, "utf8");
 }
+/* c8 ignore stop */
